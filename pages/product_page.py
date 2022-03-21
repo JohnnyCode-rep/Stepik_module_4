@@ -29,10 +29,10 @@ class ProductPage(BasePage):
 
     def should_be_correct_product_name(self):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
-        messages = self.browser.find_element(*ProductPageLocators.MESSAGES_AFTER_ADDING_TO_BASKET)
-        assert product_name.text in messages.text, "Product name is not correct"
+        name_in_message = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_MESSAGE)
+        assert product_name.text == name_in_message.text, "Product name is not correct"
 
     def should_be_correct_product_price(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
-        messages = self.browser.find_element(*ProductPageLocators.MESSAGES_AFTER_ADDING_TO_BASKET)
-        assert product_price.text in messages.text, "Product price is not correct"
+        price_in_message = self.browser.find_element(*ProductPageLocators.PRICE_IN_MESSAGE)
+        assert product_price.text == price_in_message.text, "Product price is not correct"
