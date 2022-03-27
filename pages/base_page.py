@@ -7,9 +7,13 @@ from selenium.common.exceptions import TimeoutException
 from .locators import BasePageLocators
 
 
-class BasePage():
+class BasePage:
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
         link.click()
 
     def __init__(self, browser, url, timeout=10):

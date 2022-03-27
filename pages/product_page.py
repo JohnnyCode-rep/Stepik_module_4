@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from .locators import ProductPageLocators
+from .locators import BasePageLocators
 
 
 class ProductPage(BasePage):
@@ -8,7 +9,7 @@ class ProductPage(BasePage):
         button.click()
 
     def go_to_basket(self):
-        button = self.browser.find_element(*ProductPageLocators.VIEW_BASKET_BUTTON)
+        button = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
         button.click()
 
     def should_be_product_name(self):
